@@ -1,12 +1,25 @@
+// @ts-ignore
 import React from 'react'
 
-export default function Search() {
+interface SearchControlsParams {
+  searchVal: string;
+  onChange: any;
+  onSubmit: any;
+}
+
+const SearchControls = ({ searchVal, onChange, onSubmit  }: SearchControlsParams) => {
   return (
     <div>
       <h2>Controls</h2>
-      <div>
-        <input type="text"/> <button type="submit">Search</button>
-      </div>
+      <form onSubmit={onSubmit}>
+        <input 
+          onChange={onChange}
+          type="text"
+          value={searchVal}
+        /> <button type="submit">Search</button>
+      </form>
     </div>
   )
-}
+};
+
+export default SearchControls;
