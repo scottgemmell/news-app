@@ -1,23 +1,25 @@
-import React, { Component, SyntheticEvent } from 'react'
-import { create } from "apisauce"
+import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { getNewsRequest } from "../redux/actions/news.action"
 import SearchControls from '../components/SearchControls';
 import SearchResults from '../components/SearchResults';
 
-export default class SearchPageContainer extends Component {
+interface SearchPageProps {
+	news: any;
+	getNewsRequest: Function;
+}
+
+class SearchPageContainer extends Component<SearchPageProps> {
 
 	state = {
 		searchVal: ""
 	}
 
 	componentDidMount = () => {
-		const query = "dogs";
-		const api = create({
-			baseURL: "http://hn.algolia.com/api/v1",
-			headers: { Accept: "application/json" }
-		});
-		api
-			.get(`/search?query=${query}`)
-			.then(console.log)
+
+		const { getNewsRequest } = this.props;
+		getNewsRequest();
+		
 	}
 	
 
@@ -35,9 +37,21 @@ export default class SearchPageContainer extends Component {
   render() {
     return (
       <div>
-        <SearchControls searchVal={this.state.searchVal} onChange={this.handleChange} onSubmit={this.handleSubmit} />
+				<SearchControls 
+					searchVal={this.state.searchVal} 
+					onChange={this.handleChange} 
+					onSubmit={this.handleSubmit} 
+				/>
         <SearchResults />
       </div>
     )
   }
 }
+
+function mapStateToProps(state:any) {
+	return {
+		news: state.news,
+	}
+}
+
+export default connect(mapStateToProps, { getNewsRequest })(SearchPageContainer);
