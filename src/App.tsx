@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import SearchPageContainer from './containers/SearchPageContainer';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="Page">
         <header className="App-header">
           <h1>
             News
@@ -11,16 +12,7 @@ class App extends Component {
           
         </header>
         <main>
-          <div>
-          <h2>
-            Results
-          </h2>
-          <ul>
-            <li><a href="#">Lorem ipsum</a></li>
-            <li><a href="#">Dolor set</a></li>
-            <li><a href="#">Elit nullum vitae</a></li> 
-          </ul>
-          </div>
+          <SearchPageContainer />
         </main>
       </div>
     );
