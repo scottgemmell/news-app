@@ -1,4 +1,3 @@
-// @ts-ignore
 import React, { Component, SyntheticEvent } from 'react'
 import SearchControls from '../components/SearchControls';
 import SearchResults from '../components/SearchResults';
@@ -9,14 +8,14 @@ export default class SearchPageContainer extends Component {
 		searchVal: ""
 	}
 
-	handleChange = (e: SyntheticEvent) => {
-		const { value } = e.target as HTMLInputElement;
+	handleChange = (event:any) => {
+		const { value } = event.target;
 		this.setState({ searchVal: value })
 		console.log('handleChange()', value);
 	}
 
-	handleSubmit = (e: Event) => {
-		e.preventDefault();
+	handleSubmit = (event:any) => {
+		event.preventDefault();
 		console.log('handleSubmit()', this.state);
 	}
 
