@@ -6,7 +6,7 @@ interface SearchControlsParams {
   onSubmit: any;
 }
 
-const SearchControls = ({ searchVal, onChange, onSubmit  }: SearchControlsParams) => {
+const SearchControls = ({ searchVal, onChange, onSubmit }: SearchControlsParams) => {
   return (
     <div>
       <h2>Controls</h2>
