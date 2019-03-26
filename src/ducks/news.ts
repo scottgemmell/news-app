@@ -3,8 +3,9 @@
  * Types
  */
 export const types = {
-	GET_NEWS: "news/GET_NEWS",
-	SET_NEWS: "news/SET_NEWS",
+	NEWS: "[News]",
+	GET_NEWS: "[News] GET_NEWS",
+	SET_NEWS: "[News] SET_NEWS",
 }
 
 /*
@@ -17,11 +18,14 @@ const getNewsRequest = (query:string) => {
 	}
 }
 
-const getNewsSuccess = ({ news, normalizeKey }:any) => {
+const getNewsSuccess = ({ news, feature, normalizeKey }:any) => {
 	return {
 		type: types.SET_NEWS,
 		news,
-		meta: { normalizeKey }
+		meta: { 
+			feature,
+			normalizeKey
+		}
 	}
 }
 

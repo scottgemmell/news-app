@@ -4,7 +4,7 @@ export const normalizeMiddleware = ({dispatch}:any) => (next:any) => (action:any
 
 	if(action.type.includes("SET") && action.meta.normalizeKey) {
 		
-		dispatch(dataNormalized());
+		dispatch(dataNormalized({feature: action.meta.feature}));
 
 		// News
 		const news = action.meta.normalizeKey === "news" && action.news.hits.map((newsItem:any) => {
@@ -16,7 +16,7 @@ export const normalizeMiddleware = ({dispatch}:any) => (next:any) => (action:any
 			};
 			return newsItem;
 		});
-		
+
 		next({...action, news, normalizeKey: null });
 
 	} else {
