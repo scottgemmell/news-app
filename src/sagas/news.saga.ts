@@ -1,8 +1,7 @@
 // @ts-ignore
 import { fork, call, put, take } from "redux-saga/effects";
-import types from "../constants";
-import { getNewsSuccess } from "../actions/news.action";
-import { getNewsApiRequest } from "../../api/news.api";
+import { types, getNewsSuccess } from "../ducks/news";
+import { getNewsApiRequest } from "../services/news.api";
 
 export function* getNews(query:string) {
 	try {

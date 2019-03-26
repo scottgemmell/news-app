@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getNewsRequest } from "../redux/actions/news.action"
+import { getNewsRequest } from "../ducks/news"
 import SearchControls from '../components/SearchControls';
 import SearchResults from '../components/SearchResults';
 
