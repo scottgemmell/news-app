@@ -7,7 +7,8 @@ export function* getNews(query:string) {
 	try {
 		const result = yield call(getNewsApiRequest, query);
 		yield put(actions.getNewsSuccess({
-			news: result.data
+			news: result.data,
+			normalizeKey: "yup",
 		}));
 	} catch(e) {
     	console.log(e);

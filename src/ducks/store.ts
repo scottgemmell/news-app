@@ -4,6 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { createLogger } from "redux-logger";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../sagas/";
+import { normalizeMiddleware } from "../sagas/normalize.middleware";
 
 const logger = createLogger({
 	collapsed: true,
@@ -21,7 +22,7 @@ const rootReducer = combineReducers({
 })
 
 export const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
-	applyMiddleware(sagaMiddleware, logger),
+	applyMiddleware(sagaMiddleware, normalizeMiddleware, logger),
 	// other store enhancers if any
 ));
 sagaMiddleware.run(rootSaga);

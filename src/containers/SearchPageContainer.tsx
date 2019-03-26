@@ -38,7 +38,7 @@ class SearchPageContainer extends Component<SearchPageProps> {
 
   render() {
 
-		const { news: { hits:articles } } = this.props;
+		const { news } = this.props;
 
     return (
       <div>
@@ -47,7 +47,7 @@ class SearchPageContainer extends Component<SearchPageProps> {
 					onChange={this.handleChange} 
 					onSubmit={this.handleSubmit} 
 				/>
-        <SearchResults articles={articles} />
+        <SearchResults news={news} />
       </div>
     )
   }

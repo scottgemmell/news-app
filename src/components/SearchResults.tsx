@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import * as R from "ramda";
 
 interface SearchResultsProps {
-	articles: any;
+	news: any;
 }
 
 class SearchResults extends Component<SearchResultsProps> {
 
   render(){
 
-    const { articles } = this.props;
+    const { news } = this.props;
     //console.log('articles', articles)
 
-    if(!articles || R.isEmpty(articles)) {
+    if(!news || R.isEmpty(news)) {
       return null;
     }
 
@@ -24,12 +24,12 @@ class SearchResults extends Component<SearchResultsProps> {
               Results
             </h2>
             <ul>
-            {articles.map((article:any) => {
+            {news.map((article:any) => {
               return (
-                <li key={article.created_at_i}>
+                <li key={article.id}>
                     <a href={article.url}>{article.title}</a>
                     <br/>
-                    <small>{article.created_at}</small>
+                    <small>{article.created}</small>
                 </li> 
               )
             })}

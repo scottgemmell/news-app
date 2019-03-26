@@ -17,10 +17,11 @@ const getNewsRequest = (query:string) => {
 	}
 }
 
-const getNewsSuccess = ({ news }:any) => {
+const getNewsSuccess = ({ news, normalizeKey }:any) => {
 	return {
 		type: types.SET_NEWS,
 		news,
+		meta: { normalizeKey }
 	}
 }
 
