@@ -6,6 +6,6 @@ const api = create({
 	headers: { Accept: "application/json" }
 });
 
-export const getNewsApiRequest = (query:any = "dogs") => {
+export const getNewsApiRequest = (query:any) => {
 	return api.get(`/search?query=${query}`)
 }

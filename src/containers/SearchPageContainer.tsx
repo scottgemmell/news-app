@@ -12,13 +12,12 @@ interface SearchPageProps {
 class SearchPageContainer extends Component<SearchPageProps> {
 
 	state = {
-		searchVal: ""
+		searchVal: "dogs"
 	}
 
 	componentDidMount = () => {
-
 		const { getNewsRequest } = this.props;
-		getNewsRequest();
+		getNewsRequest(this.state.searchVal);
 		
 	}
 	
@@ -26,12 +25,15 @@ class SearchPageContainer extends Component<SearchPageProps> {
 	handleChange = (event:any) => {
 		const { value } = event.target;
 		this.setState({ searchVal: value })
-		console.log('handleChange()', value);
 	}
 
 	handleSubmit = (event:any) => {
 		event.preventDefault();
-		console.log('handleSubmit()', this.state);
+		//console.log('handleSubmit()', this.state);
+		const { getNewsRequest } = this.props;
+		getNewsRequest(this.state.searchVal);
+		this.setState({ searchVal: ""});
+
 	}
 
   render() {

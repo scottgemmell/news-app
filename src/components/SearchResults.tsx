@@ -10,7 +10,7 @@ class SearchResults extends Component<SearchResultsProps> {
   render(){
 
     const { articles } = this.props;
-    console.log('articles', articles)
+    //console.log('articles', articles)
 
     if(!articles || R.isEmpty(articles)) {
       return null;

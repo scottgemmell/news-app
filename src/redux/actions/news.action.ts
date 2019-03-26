@@ -1,9 +1,10 @@
 import { GET_NEWS, SET_NEWS } from "../constants/";
 import * as api from "../../api/news.api";
 
-export const getNewsRequest = (data:any) => {
+export const getNewsRequest = (query:any) => {
 	return {
-		type: GET_NEWS
+		type: GET_NEWS,
+		query,
 	}
 }
 
