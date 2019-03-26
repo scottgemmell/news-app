@@ -1,2 +1,6 @@
-export const GET_NEWS = "news/GET_NEWS";
-export const SET_NEWS = "news/SET_NEWS";
+const types = {
+	GET_NEWS: "news/GET_NEWS",
+	SET_NEWS: "news/SET_NEWS",
+}
+
+export default types;

@@ -1,16 +1,16 @@
-import { GET_NEWS, SET_NEWS } from "../constants/";
+import types from "../constants/";
 import * as api from "../../api/news.api";
 
 export const getNewsRequest = (query:any) => {
 	return {
-		type: GET_NEWS,
+		type: types.GET_NEWS,
 		query,
 	}
 }
 
 export const getNewsSuccess = ({ news }:any) => {
 	return {
-		type: SET_NEWS,
+		type: types.SET_NEWS,
 		news,
 	}
 }
