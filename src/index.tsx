@@ -28,4 +28,9 @@ const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
 ));
 sagaMiddleware.run(getNews);
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+	</Provider>, 
+	document.getElementById('root')
+);

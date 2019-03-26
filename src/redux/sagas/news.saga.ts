@@ -1,6 +1,6 @@
-import { takeEvery, takeLatest, take, call, put, fork } from "redux-saga/effects";
+import { takeEvery, call, put } from "redux-saga/effects";
 import { GET_NEWS } from "../constants";
-import { getNewsRequest, getNewsSuccess } from "../actions/news.action";
+import { getNewsSuccess } from "../actions/news.action";
 import { getNewsApiRequest } from "../../api/news.api";
 
 export function* getNews():any {
