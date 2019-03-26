@@ -1,2 +1,2 @@
 # news-app
-Learning Typescript
+Learning Typescript demo
