@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getNewsRequest } from "../ducks/news"
+import { actions } from "../ducks/news"
 import SearchControls from '../components/SearchControls';
 import SearchResults from '../components/SearchResults';
 
@@ -59,4 +59,4 @@ function mapStateToProps(state:any) {
 	}
 }
 
-export default connect(mapStateToProps, { getNewsRequest })(SearchPageContainer);
+export default connect(mapStateToProps, { getNewsRequest: actions.getNewsRequest })(SearchPageContainer);

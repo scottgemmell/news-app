@@ -10,14 +10,14 @@ export const types = {
 /*
  * Actions
  */
-export const getNewsRequest = (query:string) => {
+const getNewsRequest = (query:string) => {
 	return {
 		type: types.GET_NEWS,
 		query,
 	}
 }
 
-export const getNewsSuccess = ({ news }:any) => {
+const getNewsSuccess = ({ news }:any) => {
 	return {
 		type: types.SET_NEWS,
 		news,
@@ -26,7 +26,7 @@ export const getNewsSuccess = ({ news }:any) => {
 
 export const actions = {
 	getNewsRequest,
-	getNewsSuccess
+	getNewsSuccess,
 }
 
 /*
