@@ -10,7 +10,7 @@ export const types = {
 /*
  * Actions
  */
-export const getNewsRequest = (query:any) => {
+export const getNewsRequest = (query:string) => {
 	return {
 		type: types.GET_NEWS,
 		query,
@@ -22,6 +22,11 @@ export const getNewsSuccess = ({ news }:any) => {
 		type: types.SET_NEWS,
 		news,
 	}
+}
+
+export const actions = {
+	getNewsRequest,
+	getNewsSuccess
 }
 
 /*

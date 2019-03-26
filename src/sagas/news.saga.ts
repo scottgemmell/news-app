@@ -1,12 +1,12 @@
 // @ts-ignore
 import { fork, call, put, take } from "redux-saga/effects";
-import { types, getNewsSuccess } from "../ducks/news";
+import { types, actions } from "../ducks/news";
 import { getNewsApiRequest } from "../services/news.api";
 
 export function* getNews(query:string) {
 	try {
 		const result = yield call(getNewsApiRequest, query);
-		yield put(getNewsSuccess({
+		yield put(actions.getNewsSuccess({
 			news: result.data
 		}));
 	} catch(e) {
