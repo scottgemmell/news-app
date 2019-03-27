@@ -18,16 +18,14 @@ class SearchPageContainer extends Component<SearchPageProps> {
 	componentDidMount = () => {
 		const { getNewsRequest } = this.props;
 		getNewsRequest(this.state.searchVal);
-		
 	}
-	
 
-	handleChange = (event:any) => {
-		const { value } = event.target;
+	handleChange = (event:React.SyntheticEvent):void => {
+		const { value } = event.target as HTMLInputElement;
 		this.setState({ searchVal: value })
 	}
 
-	handleSubmit = (event:any) => {
+	handleSubmit = (event:React.FormEvent<HTMLFormElement>):void => {
 		event.preventDefault();
 		//console.log('handleSubmit()', this.state);
 		const { getNewsRequest } = this.props;

@@ -12,9 +12,19 @@ export const types = {
  * Actions
  */
 
-export type NewsAction = 
-| { type: string; query: string }
-| { type: string; news: NewsItem[]; meta: { feature: string; normalizeKey: string} };
+export interface NewsRequestAction { 
+	type: string; 
+	query: string 
+}
+
+export interface NewsSuccessAction { 
+	type: string
+	news: NewsItem[] 
+	meta: { 
+		feature: string
+		normalizeKey: string
+	}
+};
 
 export interface NewsItem {
 	id: number
@@ -29,14 +39,14 @@ export interface NewsSuccess {
 	normalizeKey: string
 }
 
-const getNewsRequest = (query:string):NewsAction => {
+const getNewsRequest = (query:string):NewsRequestAction => {
 	return {
 		type: types.GET_NEWS,
 		query,
 	}
 }
 
-const getNewsSuccess = ({ news, feature, normalizeKey }:NewsSuccess):NewsAction => {
+const getNewsSuccess = ({ news, feature, normalizeKey }:NewsSuccess):NewsSuccessAction => {
 	return {
 		type: types.SET_NEWS,
 		news,
@@ -55,14 +65,10 @@ export const actions = {
 /*
  * Reducer
  */
-// export interface News {
-// 	news: []
-// 	action:any
-// }
 
-const initialState:Array<NewsItem> = []
+const initialState:NewsItem[] = [];
 
-export const newsReducer = (news = initialState, action:any):any => {
+export const newsReducer = (news = initialState, action:NewsSuccessAction):NewsItem[] => {
 	switch(action.type) {
 		case types.SET_NEWS:
 			return action.news;
