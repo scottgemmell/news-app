@@ -8,17 +8,20 @@ export const types = {
 	SET_NEWS: "[News] SET_NEWS",
 }
 
+export type GET_NEWS = typeof types.GET_NEWS;
+export type SET_NEWS = typeof types.SET_NEWS;
+
 /*
  * Actions
  */
 
 export interface NewsRequestAction { 
-	type: string; 
+	type: GET_NEWS; 
 	query: string 
 }
 
 export interface NewsSuccessAction { 
-	type: string
+	type: SET_NEWS
 	news: NewsItem[] 
 	meta: { 
 		feature: string

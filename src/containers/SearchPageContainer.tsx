@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { actions } from "../ducks/news"
+import { actions, NewsItem } from "../ducks/news"
 import SearchControls from '../components/SearchControls';
 import SearchResults from '../components/SearchResults';
 
@@ -16,42 +16,42 @@ class SearchPageContainer extends Component<SearchPageProps> {
 	}
 
 	componentDidMount = () => {
-		const { getNewsRequest } = this.props;
+		const { getNewsRequest }:{ getNewsRequest: Function } = this.props;
 		getNewsRequest(this.state.searchVal);
 	}
 
-	handleChange = (event:React.SyntheticEvent):void => {
-		const { value } = event.target as HTMLInputElement;
+	handleChange = (event:React.ChangeEvent<HTMLInputElement>):void => {
+		const { value }:{ value:string } = event.target;
 		this.setState({ searchVal: value })
 	}
 
 	handleSubmit = (event:React.FormEvent<HTMLFormElement>):void => {
 		event.preventDefault();
 		//console.log('handleSubmit()', this.state);
-		const { getNewsRequest } = this.props;
+		const { getNewsRequest }:{ getNewsRequest:Function } = this.props;
 		getNewsRequest(this.state.searchVal);
-		this.setState({ searchVal: ""});
-
+		this.setState({ searchVal:"" });
 	}
 
-  render() {
+	render() {
 
 		const { news } = this.props;
 
-    return (
-      <div>
+		return (
+			<div>
 				<SearchControls 
 					searchVal={this.state.searchVal} 
 					onChange={this.handleChange} 
 					onSubmit={this.handleSubmit} 
 				/>
-        <SearchResults news={news} />
-      </div>
-    )
-  }
+				<SearchResults news={news} />
+			</div>
+		)
+	}
 }
 
-function mapStateToProps(state:any) {
+const mapStateToProps = (state:any) => {
+	//console.log('state', state)
 	return {
 		news: state.news,
 	}
