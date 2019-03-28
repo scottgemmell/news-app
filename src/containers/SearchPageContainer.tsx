@@ -33,7 +33,7 @@ class SearchPageContainer extends Component<SearchPageProps> {
 		this.setState({ searchVal:"" });
 	}
 
-	render() {
+	render():JSX.Element {
 
 		const { news } = this.props;
 

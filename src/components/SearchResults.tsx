@@ -23,7 +23,7 @@ class SearchResults extends Component<SearchResultsProps> {
 					Results
 				</h2>
 				<ul>
-					{news.map((article:NewsItem) => {
+					{news.map((article:NewsItem):JSX.Element => {
 					return (
 						<li key={article.id}>
 							<a href={article.url}>{article.title}</a>
