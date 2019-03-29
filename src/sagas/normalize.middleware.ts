@@ -17,7 +17,21 @@ export const normalizeMiddleware = ({dispatch}:any) => (next:any) => (action:any
 			return newsItem;
 		});
 
-		next({...action, news, normalizeKey: null });
+		const newsObj:any = {};
+
+		const byId = action.meta.normalizeKey === "news" && action.news.hits.map((newsItem:any) => {
+			newsItem = {
+				id: newsItem.created_at_i,
+				title: newsItem.title,
+				url: newsItem.url,
+				created: newsItem.created_at
+			};
+			return newsObj[newsItem.id] = newsItem ;
+		});
+
+		console.log('news', news)
+
+		next({...action, news: { news, byId: newsObj }, normalizeKey: null });
 
 	} else {
 		next(action);

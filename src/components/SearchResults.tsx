@@ -6,7 +6,7 @@ interface SearchResultsProps {
 	news: NewsItem[];
 }
 
-class SearchResults extends Component<SearchResultsProps> {
+class SearchResults extends Component<any> {
 
 	render(){
 
@@ -23,7 +23,7 @@ class SearchResults extends Component<SearchResultsProps> {
 					Results
 				</h2>
 				<ul>
-					{news.map((article:NewsItem):JSX.Element => {
+					{news.news.map((article:any):JSX.Element => {
 					return (
 						<li key={article.id}>
 							<a href={article.url}>{article.title}</a>
