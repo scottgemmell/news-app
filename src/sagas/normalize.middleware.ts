@@ -6,8 +6,9 @@ export const normalizeMiddleware = ({dispatch}:any) => (next:any) => (action:any
 		
 		dispatch(dataNormalized({feature: action.meta.feature}));
 
+		console.log('action.news', action.news)
 		// News
-		const news = action.meta.normalizeKey === "news" && action.news.hits.map((newsItem:any) => {
+		const all = action.meta.normalizeKey === "news" && action.news.hits.map((newsItem:any) => {
 			newsItem = { 
 				id: newsItem.created_at_i,
 				title: newsItem.title,
@@ -15,6 +16,12 @@ export const normalizeMiddleware = ({dispatch}:any) => (next:any) => (action:any
 				created: newsItem.created_at
 			};
 			return newsItem;
+		});
+
+		const totalNewsItems = action.news.nbHits;
+
+		const allIds = action.meta.normalizeKey === "news" && action.news.hits.map((newsItem:any) => {
+			return newsItem.created_at_i;
 		});
 
 		const newsObj:any = {};
@@ -29,9 +36,9 @@ export const normalizeMiddleware = ({dispatch}:any) => (next:any) => (action:any
 			return newsObj[newsItem.id] = newsItem ;
 		});
 
-		console.log('news', news)
+		//console.log('all', all)
 
-		next({...action, news: { news, byId: newsObj }, normalizeKey: null });
+		next({...action, news: { all, byId: newsObj, allIds, total: totalNewsItems }, normalizeKey: null });
 
 	} else {
 		next(action);

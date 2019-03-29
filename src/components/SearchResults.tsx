@@ -23,7 +23,7 @@ class SearchResults extends Component<any> {
 					Results
 				</h2>
 				<ul>
-					{news.news.map((article:any):JSX.Element => {
+					{news.all.map((article:any):JSX.Element => {
 					return (
 						<li key={article.id}>
 							<a href={article.url}>{article.title}</a>
