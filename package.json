@@ -29,10 +29,17 @@
     "redux-saga": "^1.0.2",
     "typescript": "3.3.4000"
   },
+  "jest": {
+	"collectCoverageFrom": [
+		"<rootDir>/src/**/*.{ts,tsx}",
+		"!<rootDir>/src/index.tsx"
+	]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+	"test": "react-scripts test --verbose",
+	"test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
