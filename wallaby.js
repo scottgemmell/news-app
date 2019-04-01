@@ -34,6 +34,6 @@ module.exports = function(wallaby) {
   
 	  testFramework: 'jest',
 
-	  filesWithNoCoverageCalculated: ['src/index.tsx']
+	  filesWithNoCoverageCalculated: ['src/ducks/store.tsx', 'src/index.tsx']
 	};
   };

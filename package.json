@@ -32,7 +32,8 @@
   "jest": {
 	"collectCoverageFrom": [
 		"<rootDir>/src/**/*.{ts,tsx}",
-		"!<rootDir>/src/index.tsx"
+		"!<rootDir>/src/index.tsx",
+		"!<rootDir>/src/ducks/store.tsx"
 	]
   },
   "scripts": {
