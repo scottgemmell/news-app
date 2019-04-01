@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Enzyme, { shallow, mount } from "enzyme";
 import App from "./App";
 

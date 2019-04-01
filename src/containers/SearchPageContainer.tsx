@@ -3,13 +3,14 @@ import { connect } from "react-redux";
 import { actions, NewsItem } from "../ducks/news"
 import SearchControls from '../components/SearchControls';
 import SearchResults from '../components/SearchResults';
+import * as R from "ramda";
 
 interface SearchPageProps {
 	news: any;
 	getNewsRequest: Function;
 }
 
-class SearchPageContainer extends Component<SearchPageProps> {
+export class SearchPageContainer extends Component<SearchPageProps> {
 
 	state = {
 		searchVal: "dogs"
@@ -50,7 +51,7 @@ class SearchPageContainer extends Component<SearchPageProps> {
 	}
 }
 
-const mapStateToProps = (state:any) => {
+export const mapStateToProps = (state:any) => {
 	//console.log('state', state)
 	return {
 		news: state.news,
