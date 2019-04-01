@@ -10,7 +10,7 @@ const defaultProps = () => ({
 const setup = (overrideProps = {}) => {
 	const props = Object.assign({}, defaultProps(), overrideProps);
 	const wrapper = mount(<SearchPageContainer {...props} />);
-	console.log('wrapper', wrapper.debug())
+	//console.log('wrapper', wrapper.debug())
 	return { wrapper, props };
 };
 

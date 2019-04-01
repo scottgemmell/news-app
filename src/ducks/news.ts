@@ -42,14 +42,14 @@ export interface NewsSuccess {
 	normalizeKey: string
 }
 
-const getNewsRequest = (query:string):NewsRequestAction => {
+export const getNewsRequest = (query:string):NewsRequestAction => {
 	return {
 		type: types.GET_NEWS,
 		query,
 	}
 }
 
-const getNewsSuccess = ({ news, feature, normalizeKey }:NewsSuccess):NewsSuccessAction => {
+export const getNewsSuccess = ({ news, feature, normalizeKey }:NewsSuccess):NewsSuccessAction => {
 	return {
 		type: types.SET_NEWS,
 		news,
