@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Enzyme, { shallow, mount } from "enzyme";
-import App from "./App";
+import SearchPageContainer from "./SearchPageContainer";
 
-describe("<App />", () => {
+describe("<SearchPageContainer />", () => {
 	it("renders", () => {
-		const wrapper = shallow(<App />);
+		const wrapper = shallow(<SearchPageContainer />);
 		expect(wrapper.exists()).toBe(true);
 	});
 });
