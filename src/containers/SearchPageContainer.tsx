@@ -21,6 +21,11 @@ export class SearchPageContainer extends Component<SearchPageProps> {
 		getNewsRequest(this.state.searchVal);
 	}
 
+	// performSearch = (query:any) => {
+	// 	const { getNewsRequest }:{ getNewsRequest: Function } = this.props;
+	// 	getNewsRequest(query);
+	// }
+
 	handleChange = (event:React.ChangeEvent<HTMLInputElement>):void => {
 		const { value }:{ value:string } = event.target;
 		this.setState({ searchVal: value })

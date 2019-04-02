@@ -1,5 +1,3 @@
-import React from "react";
-import Enzyme, { shallow, mount } from "enzyme";
 import { 
 	types, 
 	getNewsRequest, 
@@ -36,7 +34,7 @@ describe("News Duck", () => {
 	});
 
 	it("GET returns empty initialState", () => {
-		const newState = newsReducer([], getNewsRequest());
+		const newState = newsReducer([], getNewsRequest(null)); // Should fail
 		expect(newState).toEqual([]);
 	});
 
