@@ -53,7 +53,7 @@ describe("ComponentDidMount", () => {
 		//const wrapper = mount(<SearchPageContainer {...props} />);
 		// wrapper.instance().getNewsRequest();
 		// expect(spy).toHaveBeenCalled();
-		console.log('wrapper', wrapper.props().news);
+		//console.log('wrapper', wrapper.props().news);
 		const getUrl = wrapper.props().getNewsRequest;
 		expect(getUrl).toBeCalled();
 		//expect(wrapper.props().news).toHaveLength(10);
