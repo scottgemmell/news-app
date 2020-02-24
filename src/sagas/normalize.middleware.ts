@@ -1,10 +1,10 @@
 import { dataNormalized } from "../ducks/normalize";
 
-export const normalizeMiddleware = ({dispatch}:any) => (next:any) => (action:any) => {
+export const normalizeMiddleware = ({ dispatch }:any) => (next:any) => (action:any) => {
 
 	if(action.type.includes("SET") && action.meta.normalizeKey) {
 		
-		dispatch(dataNormalized({feature: action.meta.feature}));
+		dispatch(dataNormalized({ feature: action.meta.feature }));
 
 		// News
 		const news = action.meta.normalizeKey === "news" && action.news.hits.map((newsItem:any) => {

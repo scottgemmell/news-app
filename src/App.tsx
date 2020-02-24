@@ -5,13 +5,12 @@ const App = () => {
   return (
 	<div className="Page">
 		<header className="App-header">
-		<h1>
-			News
-		</h1>
-		
+			<h1>
+				News
+			</h1>
 		</header>
 		<main>
-		<SearchPageContainer />
+			<SearchPageContainer />
 		</main>
 	</div>
   )

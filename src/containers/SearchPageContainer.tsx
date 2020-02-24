@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { actions, NewsItem } from "../ducks/news"
-import SearchControls from '../components/SearchControls';
-import SearchResults from '../components/SearchResults';
-import * as R from "ramda";
+import { actions } from "../ducks/news"
+import SearchControls from "../components/SearchControls";
+import SearchResults from "../components/SearchResults";
 
 interface SearchPageProps {
 	news: any;
